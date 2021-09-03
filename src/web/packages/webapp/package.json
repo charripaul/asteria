@@ -1,0 +1,37 @@
+{
+    "name": "@asteria/webapp",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "concurrently 'next dev'",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@asteria/stores": "workspace:packages/stores",
+        "@emotion/react": "^11.4.1",
+        "@emotion/styled": "^11.3.0",
+        "@mui/material": "latest",
+        "@mui/styles": "latest",
+        "classnames": "^2.3.1",
+        "next": "11.0.1",
+        "next-transpile-modules": "^8.0.0",
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
+        "react-redux": "^7.2.4"
+    },
+    "devDependencies": {
+        "@types/concurrently": "^6",
+        "@types/eslint": "^7",
+        "@types/react": "17.0.15",
+        "@types/react-dom": "^17",
+        "@types/react-redux": "^7",
+        "@types/rimraf": "^3",
+        "concurrently": "^6.2.0",
+        "eslint": "7.32.0",
+        "eslint-config-next": "11.0.1",
+        "postcss": "latest",
+        "typescript": "4.3.5"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "name": "@asteria/interfaces",
+    "packageManager": "yarn@3.0.0",
+    "main": "src/index.ts",
+    "private": true,
+    "sideEffects": false
+}
