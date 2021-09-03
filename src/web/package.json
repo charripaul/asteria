@@ -18,19 +18,15 @@
             "yarn run lint-fix"
         ]
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
     "scripts": {
         "build": "yarn workspaces foreach -pt run build",
-        "clean": "yarn workspaces foreach -pt run clear && rimraf ./**/node_modules",
+        "clean": "yarn workspaces foreach -pt run clean && rimraf ./**/node_modules",
         "lint": "eslint --ext .tsx,.ts packages/ --quiet",
         "lint-fix": "eslint --fix",
         "stylelint": "stylelint",
         "stylelint-fix": "yarn run stylelint --fix",
-        "prettier": "prettier --write"
+        "prettier": "prettier --write",
+        "postinstall": "cd .. && cd .. && husky install"
     },
     "devDependencies": {
         "@types/eslint": "^7.28.0",
