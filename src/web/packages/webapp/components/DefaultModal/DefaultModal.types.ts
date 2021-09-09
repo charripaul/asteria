@@ -11,4 +11,8 @@ export interface IModalActions {
     onOpen?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
-export type IModalEnhancedProps = IModalState & IModalActions;
+export interface IModalServerSideProps {
+    userDataServer: IUserData;
+}
+
+export type IModalEnhancedProps = IModalState & IModalActions & IModalServerSideProps;

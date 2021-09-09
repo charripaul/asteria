@@ -3,7 +3,7 @@ import { IUserData } from '@asteria/interfaces';
 import type { ReduxOperation } from '../..';
 import { modalStoreActions } from './modalStore.reducer';
 
-export const getUserData = (): ReduxOperation<Promise<void>> => async (dispatch, getState) => {
+export const fetchUserData = (): ReduxOperation<Promise<void>> => async (dispatch, getState) => {
     try {
         const userData: IUserData = await userApis.getUserData();
         dispatch(modalStoreActions.setUserData(userData));

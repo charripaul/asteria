@@ -1,10 +1,18 @@
+import { userApis } from '@asteria/apis';
+import { IUserData } from '@asteria/interfaces';
 import { modalStoreActions } from '@asteria/stores';
 import Button from '@mui/material/Button';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { useDispatch } from 'react-redux';
 import Modal from '../components/DefaultModal';
 
-const Home = () => {
+const Home = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     const dispatch = useDispatch();
+    const userData: IUserData = props.userData;
+
+    const modalProps = {
+        userDataServer: userData,
+    };
 
     return (
         <div>
@@ -15,11 +23,21 @@ const Home = () => {
                     dispatch(modalStoreActions.openModal());
                 }}
             >
-                {'Get User Data'}
+                {'Get ' + userData.data.first_name + ' Data'}
             </Button>
-            <Modal />
+            <Modal {...modalProps} />
         </div>
     );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const userData: IUserData = (await userApis.getUserData()).data;
+
+    return {
+        props: {
+            userData,
+        },
+    };
 };
 
 export default Home;
