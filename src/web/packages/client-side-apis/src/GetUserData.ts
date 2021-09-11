@@ -1,7 +1,7 @@
-export async function getUserData() {
-    // Call an external API endpoint to get posts.
+export async function getUserDataClient() {
+    // Call an internal API endpoint to get posts.
     // You can use any data fetching library
-    const res = await fetch('https://reqres.in/api/users/1');
+    const res = await fetch('http://localhost:3000/api/userData');
     const data = await res.json();
 
     // By returning { props: { posts } }, the Blog component

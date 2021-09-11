@@ -1,10 +1,10 @@
-import { userApis } from '@asteria/apis';
 import { IUserData } from '@asteria/interfaces';
 import { modalStoreActions } from '@asteria/stores';
 import Button from '@mui/material/Button';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { useDispatch } from 'react-redux';
 import Modal from '../components/DefaultModal';
+import { getUserData } from './api/userData';
 
 const Home = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     const dispatch = useDispatch();
@@ -30,8 +30,9 @@ const Home = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => 
     );
 };
 
+// Server side call code directly, client side call internal api
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const userData: IUserData = (await userApis.getUserData()).data;
+    const userData: IUserData = (await getUserData()).data;
 
     return {
         props: {

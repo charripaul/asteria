@@ -1,5 +1,5 @@
 {
-    "name": "@asteria/apis",
+    "name": "@asteria/client-side-apis",
     "packageManager": "yarn@3.0.0",
     "main": "src/index.ts",
     "private": true,
